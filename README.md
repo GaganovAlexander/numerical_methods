@@ -1,4 +1,4 @@
-# Numeric methods' practice/home tasks
+# Numerical methods' practice/home tasks
 - \# 1(of 13.02.24): [dichotomy.py](https://github.com/GaganovAlexander/numerical_methods/blob/main/dichotomy.py) dichotomy method
 - \# 2(of 20.02.24): [newton.py](https://github.com/GaganovAlexander/numerical_methods/blob/main/newton.py) newton and secant methods
 - \# 3(of 20.02.24): [root.py](https://github.com/GaganovAlexander/numerical_methods/blob/main/simple_iter.py) root(simple iterations) method
