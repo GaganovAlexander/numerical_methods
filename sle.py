@@ -11,17 +11,26 @@ def reverse_passage(step_augmented_matrix: np.ndarray[float]) -> np.ndarray[floa
         x = np.append(x, solve_linear_eq(step_augmented_matrix[i, i:]))
     return x
 
-def single_div_method(augmented_matrix: np.ndarray[float]) -> np.ndarray[float]:
+def max_of_col_method(augmented_matrix: np.ndarray[float], i: int) -> np.ndarray[float]:
+    max_ = augmented_matrix[i:, i].flatten().argmax()
+    temp = augmented_matrix[i, :].copy()
+    augmented_matrix[i, :], augmented_matrix[i+max_, :] = augmented_matrix[i+max_, :], temp
+
+def single_div_method(augmented_matrix: np.ndarray[float], use_mcm=False) -> np.ndarray[float]:
     for i in range(len(augmented_matrix)):
+            if use_mcm:
+                 max_of_col_method(augmented_matrix, i)
             augmented_matrix[i, :] /= augmented_matrix[i, i]
             for j in range(i+1, len(augmented_matrix)):
                   augmented_matrix[j, i:] -= augmented_matrix[i, i:]*augmented_matrix[j, i]
     return reverse_passage(augmented_matrix)
 
 
-def rectangle_method(augmented_matrix: np.ndarray[float]) -> np.ndarray[float]:
+def rectangle_method(augmented_matrix: np.ndarray[float], use_mcm=False) -> np.ndarray[float]:
     len_ = len(augmented_matrix)
     for i in range(len_-1):
+        if use_mcm:
+                 max_of_col_method(augmented_matrix, i)
         augmented_matrix[i, :] /= augmented_matrix[i, i]
         for j in range(i+1, len_):
             for k in range(i+1, len_+1):
@@ -49,10 +58,10 @@ for i in range(len(res)):
     print(f"x{i+1} = {res[i]:.3f}")
 print('-'*20)
 print("Дополненая матрица СЛУ:", example_2, "Решения по методу единственного деления:", sep='\n')
-res = single_div_method(example_2.copy())[::-1]
+res = single_div_method(example_2.copy(), True)[::-1]
 for i in range(len(res)):
     print(f"x{i+1} = {res[i]:.3f}")
 print("Решения по методу прямоугольника:")
-res = rectangle_method(example_2.copy())[::-1]
+res = rectangle_method(example_2.copy(), True)[::-1]
 for i in range(len(res)):
     print(f"x{i+1} = {res[i]:.3f}")
