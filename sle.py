@@ -12,7 +12,7 @@ def reverse_passage(step_augmented_matrix: np.ndarray[float]) -> np.ndarray[floa
     return x
 
 def max_of_col_method(augmented_matrix: np.ndarray[float], i: int) -> np.ndarray[float]:
-    max_ = augmented_matrix[i:, i].flatten().argmax()
+    max_ = abs(augmented_matrix[i:, i].flatten()).argmax()
     temp = augmented_matrix[i, :].copy()
     augmented_matrix[i, :], augmented_matrix[i+max_, :] = augmented_matrix[i+max_, :], temp
 
