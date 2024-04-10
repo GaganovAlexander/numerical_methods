@@ -1,19 +1,17 @@
-﻿using System;
-using System.Linq;
-public static class Program 
+﻿public static class Program 
 {
     public static void Main(string[] args) {
         double[][] A, res;
         double eps = 0.1;
         if (args.Length == 0 || args[0] == "1") 
         {
-            A = new double[][] {new double[] {5, 1, 2}, new double[] {1, 4, 1}, new double[] {2, 1, 3}};
+            A = [[5, 1, 2], [1, 4, 1], [2, 1, 3]];
             res = IterationsMethod(A, eps);
             
         }
         else if (args[0] == "2")
         {
-            A = new double[][] {new double[] {-26, -33, -25}, new double[] {31, 42, 23}, new double[] {-11, -15, -4}};
+            A = [[-26, -33, -25], [31, 42, 23], [-11, -15, -4]];
             res = IterationsMethod(A, eps);
         }
         else return;
@@ -48,7 +46,7 @@ public static class Program
             }
         } while (Math.Abs(lambda1 - lambda0) > eps);
         x1.Normalize2();
-        return new double[][] {x1, new double[] {lambda1}};
+        return [x1, [lambda1]];
     }
 
     private static void Normalize2(this double[] x)
