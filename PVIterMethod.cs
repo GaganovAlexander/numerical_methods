@@ -17,8 +17,8 @@
         else return;
         Console.WriteLine("Собственный вектор V = [" + string.Join(" ", res[0]) + "]");
         Console.WriteLine("Собственное значение L = " + res[1][0]);
-        Console.WriteLine("A*V = " + string.Join(" ", res[0].Mult(res[1][0])));
-        Console.WriteLine("A*L = " + string.Join(" ", A.Mult(res[0])));
+        Console.WriteLine("L*V = " + string.Join(" ", res[0].Mult(res[1][0])));
+        Console.WriteLine("A*V = " + string.Join(" ", A.Mult(res[0])));
     }
 
     private static double[][] IterationsMethod(double[][] A, double eps)
