@@ -4,8 +4,13 @@
 - \# 3(of 27.02.24): [theorems.py](https://github.com/GaganovAlexander/numerical_methods/blob/main/dichotomy.py) roots search limits theorems 
 - \# 4(of 05.03.24): [chord.py](https://github.com/GaganovAlexander/numerical_methods/blob/main/chord.py) chord method
 - \# 5(of 12.03.24): [sle.py](https://github.com/GaganovAlexander/numerical_methods/blob/main/sle.py) single division, rectangle and max of column methods
-- \# 7(of 09.03.24): [PVIterMethod.cs](https://github.com/GaganovAlexander/numerical_methods/blob/main/PVIterMethod.cs)/[PVDirectUnwindingMethod.cs](https://github.com/GaganovAlexander/numerical_methods/blob/main/PVDirectUnwindingMethod.cs) iteration/direct unwinding method for proper value finding
+- \# 7(of 09.04.24): [PVIterMethod.cs](https://github.com/GaganovAlexander/numerical_methods/blob/main/PVIterMethod.cs)/[PVDirectUnwindingMethod.cs](https://github.com/GaganovAlexander/numerical_methods/blob/main/PVDirectUnwindingMethod.cs) iteration/direct unwinding method for proper value finding
 
     .exe files download:
     - [PVIterMethod](https://althgamer.ru/storage/PVIterMethod.exe)
     - [PVDirectUnwindingMethod](https://althgamer.ru/storage/PVDirectUnwindingMethod.exe)
+
+- \# 9(of 24.04.24) [LagrangePolynomials](https://github.com/GaganovAlexander/numerical_methods/blob/main/LagrangePolynomials.cs) lagrange polynomials methods for function aproximation
+
+    .exe file download:
+    - [LagrangePolynomials](https://althgamer.ru/storage/LagrangePolynomials.exe)

@@ -26,6 +26,7 @@
         return [];
     } 
 
+    // Below is funcs to recreate Newton's method for eqations solving in c#
     public static double Newton(this double[] equation, double x0, double eps)
     {
         double x1;
