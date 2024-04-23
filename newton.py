@@ -6,13 +6,13 @@ def newton(func, x0, eps, stop=simple_stop, x_1=None):
     if der == 0:
         der += eps
     x1 = x0 - calc(func, x0)/der
-    if not x_1 is None and stop(x0, x1, eps, x_1):
+    if x_1 is not None and stop(x0, x1, eps, x_1):
         return x1
     return newton(func, x1, eps, stop, x0)
 
 def simplified_newton(func, der, x0, eps, stop=simple_stop, x_1=None):
     x1 = x0 - calc(func, x0)/der
-    if not x_1 is None and stop(x0, x1, eps, x_1):
+    if x_1 is not None and stop(x0, x1, eps, x_1):
         return x1
     return simplified_newton(func, der, x1, eps, stop, x0)
 
@@ -21,7 +21,7 @@ def newton_broiden(func, x0, c, eps, stop=simple_stop, x_1=None):
     if der == 0:
         der += eps
     x1 = x0 - c*(calc(func, x0)/der)
-    if not x_1 is None and stop(x0, x1, eps, x_1):
+    if x_1 is not None and stop(x0, x1, eps, x_1):
         return x1
     return newton(func, x1, eps, stop, x0)
 
@@ -33,7 +33,7 @@ def secant(func, x0, delta, eps, stop=simple_stop, x_1=None):
     if der == 0:
         der += eps
     x1 = x0 - func(x0)/der
-    if not x_1 is None and stop(x0, x1, eps, x_1):
+    if x_1 is not None and stop(x0, x1, eps, x_1):
         return x1
     return secant(func, x1, delta, eps, stop, x0)
 

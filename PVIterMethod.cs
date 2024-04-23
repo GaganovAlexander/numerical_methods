@@ -15,6 +15,7 @@
             res = IterationsMethod(A, eps);
         }
         else return;
+        
         Console.WriteLine("Собственный вектор V = [" + string.Join(" ", res[0]) + "]");
         Console.WriteLine("Собственное значение L = " + res[1][0]);
         Console.WriteLine("L*V = " + string.Join(" ", res[0].Mult(res[1][0])));
@@ -27,8 +28,9 @@
         double[] x1 = A.Mult(x0);
         double lambda0 = x1[0] / x0[0];
         double lambda1 = lambda0;
+
         int iterations = 0;
-        do 
+        do
         {
             Array.Copy(x1, x0, x1.Length);
             x1 = A.Mult(x0);
@@ -45,6 +47,7 @@
                 break;
             }
         } while (Math.Abs(lambda1 - lambda0) > eps);
+
         x1.Normalize2();
         return [x1, [lambda1]];
     }
@@ -52,45 +55,30 @@
     private static void Normalize2(this double[] x)
     {
         double norma = 0;
-        for (int i = 0; i < x.Length; i++)
-        {
-            norma += x[i] * x[i];
-        }
+        for (int i = 0; i < x.Length; i++) norma += x[i] * x[i];
         norma = Math.Sqrt(norma);
 
-        for (int i = 0; i < x.Length; i++)
-        {
-            x[i] /= norma;
-        }
+        for (int i = 0; i < x.Length; i++) x[i] /= norma;
     }
 
     private static double Mult(this double[] x, double[] y)
     {
         double res = 0;
-        for (int i = 0; i < x.Length; i++)
-        {
-            res += x[i] * y[i];
-        }
+        for (int i = 0; i < x.Length; i++) res += x[i] * y[i];
         return res;
     }
 
     private static double[] Mult(this double[][] A, double[] x)
     {
         double[] res = new double[A.Length];
-        for (int i = 0; i < A.Length; i++)
-        {
-            res[i] = A[i].Mult(x);
-        }
+        for (int i = 0; i < A.Length; i++) res[i] = A[i].Mult(x);
         return res;
     }
 
     private static double[] Mult(this double[] x, double y)
     {
         double[] res = new double[x.Length];
-        for (int i = 0; i < x.Length; i++)
-        {
-            res[i] = x[i] * y;
-        }
+        for (int i = 0; i < x.Length; i++) res[i] = x[i] * y;
         return res;
     }
 }
