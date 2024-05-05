@@ -11,8 +11,15 @@
         Console.Write($"({res[1]}x) + ");
         for(int i = 2; i < res.Length-1; i++) Console.Write($"({res[i]}x^{i}) + ");
         Console.WriteLine($"({res[^1]}x^{res.Length-1})");
-
-        double exampleX = double.Parse(args[0]);
+        try
+        {
+            double exampleX = double.Parse(args[0]);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Missed 1 required argument(example x where we're finding approximate value)");
+            return;
+        }
         Console.WriteLine($"f({exampleX}) ≈ {res.Calc(exampleX)}");
     }
 
