@@ -14,13 +14,12 @@
         try
         {
             double exampleX = double.Parse(args[0]);
+            Console.WriteLine($"f({exampleX}) ≈ {res.Calc(exampleX)}");
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             Console.WriteLine("Missed 1 required argument(example x where we're finding approximate value)");
-            return;
         }
-        Console.WriteLine($"f({exampleX}) ≈ {res.Calc(exampleX)}");
     }
 
     public static double[] LagrangePolynomials(double[][] A)
